@@ -1,6 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/views/commandes.dart';
 import 'package:tshombo/views/compte.dart';
 import 'package:tshombo/views/home.dart';
@@ -32,6 +33,7 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
@@ -52,6 +54,7 @@ class _IndexState extends State<Index> {
 
       bottomNavigationBar: BottomNavyBar(
         showElevation: false,
+        backgroundColor: ghost,
         selectedIndex: currentIndex,
         onItemSelected: (index) {
           setState(() {
@@ -60,44 +63,48 @@ class _IndexState extends State<Index> {
         },
         items: <BottomNavyBarItem> [
           BottomNavyBarItem(
+            activeColor: grey1,
             icon: const Icon(Icons.home_rounded),
             title: Text(
               "Accueil",
               style: GoogleFonts.inter(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.bold
               )
             )
           ),
 
           BottomNavyBarItem(
-            icon: const Icon(Icons.store_rounded),
+            activeColor: grey1,
+            icon: const Icon(Icons.store_rounded, color: grey1,),
             title: Text(
               "Shops",
               style: GoogleFonts.inter(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.bold
               )
             )
           ),
 
           BottomNavyBarItem(
-            icon: const Icon(Icons.assignment_rounded),
+            activeColor: grey1,
+            icon: const Icon(Icons.assignment_rounded, color: grey1,),
             title: Text(
               "Commandes",
               style: GoogleFonts.inter(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.bold
               )
             )
           ),
 
           BottomNavyBarItem(
-            icon: const Icon(Icons.account_circle_rounded),
+            activeColor: grey1,
+            icon: const Icon(Icons.account_circle_rounded, color: grey1,),
             title: Text(
               "Mon compte",
               style: GoogleFonts.inter(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.bold
               )
             )

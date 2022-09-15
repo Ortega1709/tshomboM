@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tshombo/utils/couleurs.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,17 +13,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Accueil",
-          style: GoogleFonts.inter(),
-        ),
-        centerTitle: true,
-      ),
+      backgroundColor: ghost,
       body: Center(
         child: Text(
           "Accueil",
-          style: GoogleFonts.inter(),
+          style: GoogleFonts.inter(
+            color: grey1,
+            fontSize: 25,
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
     );
