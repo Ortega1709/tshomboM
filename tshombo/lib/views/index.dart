@@ -1,6 +1,10 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tshombo/views/commandes.dart';
+import 'package:tshombo/views/compte.dart';
+import 'package:tshombo/views/home.dart';
+import 'package:tshombo/views/shops.dart';
 
 class Index extends StatefulWidget {
   const Index({super.key});
@@ -29,17 +33,6 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Tshombo",
-          style: GoogleFonts.inter(
-            fontSize: 16,
-            fontWeight: FontWeight.bold
-          ),
-        ),
-        centerTitle: true,
-      ),
-
       body: SizedBox.expand(
         child: PageView(
           controller: pageController,
@@ -48,8 +41,11 @@ class _IndexState extends State<Index> {
               currentIndex = index;
             });
           },
-          children: [
-            
+          children: const [
+            Home(),
+            Shops(),
+            Commandes(),
+            Compte()
           ],
         ),
       ),
