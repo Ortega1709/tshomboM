@@ -51,6 +51,7 @@ class _IndexState extends State<Index> {
       ),
 
       bottomNavigationBar: BottomNavyBar(
+        showElevation: false,
         selectedIndex: currentIndex,
         onItemSelected: (index) {
           setState(() {
