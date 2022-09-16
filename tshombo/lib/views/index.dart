@@ -53,7 +53,7 @@ class _IndexState extends State<Index> {
       ),
 
       bottomNavigationBar: BottomNavyBar(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         showElevation: false,
         backgroundColor: ghost,
         selectedIndex: currentIndex,
