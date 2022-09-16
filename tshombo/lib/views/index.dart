@@ -53,6 +53,7 @@ class _IndexState extends State<Index> {
       ),
 
       bottomNavigationBar: BottomNavyBar(
+        mainAxisAlignment: MainAxisAlignment.center,
         showElevation: false,
         backgroundColor: ghost,
         selectedIndex: currentIndex,
@@ -64,6 +65,7 @@ class _IndexState extends State<Index> {
         items: <BottomNavyBarItem> [
           BottomNavyBarItem(
             activeColor: grey1,
+            textAlign: TextAlign.center,
             icon: const Icon(Icons.home_rounded),
             title: Text(
               "Accueil",
@@ -76,6 +78,7 @@ class _IndexState extends State<Index> {
 
           BottomNavyBarItem(
             activeColor: grey1,
+            textAlign: TextAlign.center,
             icon: const Icon(Icons.store_rounded, color: grey1,),
             title: Text(
               "Shops",
@@ -88,6 +91,7 @@ class _IndexState extends State<Index> {
 
           BottomNavyBarItem(
             activeColor: grey1,
+            textAlign: TextAlign.center,
             icon: const Icon(Icons.assignment_rounded, color: grey1,),
             title: Text(
               "Commandes",
@@ -100,9 +104,10 @@ class _IndexState extends State<Index> {
 
           BottomNavyBarItem(
             activeColor: grey1,
+            textAlign: TextAlign.center,
             icon: const Icon(Icons.account_circle_rounded, color: grey1,),
             title: Text(
-              "Mon compte",
+              "Compte",
               style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.bold
