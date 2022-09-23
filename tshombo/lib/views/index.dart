@@ -5,6 +5,7 @@ import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/views/commandes.dart';
 import 'package:tshombo/views/compte.dart';
 import 'package:tshombo/views/home.dart';
+import 'package:tshombo/views/panier.dart';
 import 'package:tshombo/views/shops.dart';
 
 class Index extends StatefulWidget {
@@ -47,13 +48,12 @@ class _IndexState extends State<Index> {
             Home(),
             Shops(),
             Commandes(),
-            Compte()
+            Panier()
           ],
         ),
       ),
 
       bottomNavigationBar: BottomNavyBar(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         showElevation: false,
         backgroundColor: ghost,
         selectedIndex: currentIndex,
@@ -66,7 +66,7 @@ class _IndexState extends State<Index> {
           BottomNavyBarItem(
             activeColor: grey1,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.home_rounded),
+            icon: const Icon(Icons.home_rounded, color: grey1),
             title: Text(
               "Accueil",
               style: GoogleFonts.inter(
@@ -79,7 +79,7 @@ class _IndexState extends State<Index> {
           BottomNavyBarItem(
             activeColor: grey1,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.store_rounded, color: grey1,),
+            icon: const Icon(Icons.store_rounded, color: grey1),
             title: Text(
               "Shops",
               style: GoogleFonts.inter(
@@ -92,7 +92,7 @@ class _IndexState extends State<Index> {
           BottomNavyBarItem(
             activeColor: grey1,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.assignment_rounded, color: grey1,),
+            icon: const Icon(Icons.assignment_rounded, color: grey1),
             title: Text(
               "Commandes",
               style: GoogleFonts.inter(
@@ -105,9 +105,9 @@ class _IndexState extends State<Index> {
           BottomNavyBarItem(
             activeColor: grey1,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.account_circle_rounded, color: grey1,),
+            icon: const Icon(Icons.shopping_cart_rounded, color: grey1),
             title: Text(
-              "Compte",
+              "Panier",
               style: GoogleFonts.inter(
                 fontSize: 14,
                 fontWeight: FontWeight.bold

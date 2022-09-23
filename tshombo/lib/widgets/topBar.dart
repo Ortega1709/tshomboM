@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:profile/profile.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/views/panier.dart';
 
@@ -22,6 +24,7 @@ class _TopBarState extends State<TopBar> {
       child: SizedBox(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center ,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,20 +47,10 @@ class _TopBarState extends State<TopBar> {
                 ),
               ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Panier())
-                );
-              },
-              child: const Card(
-                elevation: 8,
-                child:  Padding(
-                  padding: EdgeInsets.all(6),
-                  child: Icon(Icons.shopping_cart_rounded),
-                ),
-              ),
+            const ProfilePicture(
+              name: "Kabwe Mulunda Ortega",
+              radius: 20,
+              fontsize: 18,
             )
           ],
         ),
