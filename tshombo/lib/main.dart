@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/views/index.dart';
+import 'package:tshombo/views/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const Index(),
+      home: const Login(),
     );
   }
 }
