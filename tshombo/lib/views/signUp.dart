@@ -50,10 +50,11 @@ class _SignUpState extends State<SignUp> {
 
     return Scaffold(
       backgroundColor: ghost,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset("lib/images/lineup.png"),
+            Padding(
               padding: EdgeInsets.all(width * 0.060),
               child: Form(
                 key: _formKey,
@@ -63,15 +64,16 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     Text(
                       "Bienvenue !",
-                      style: h1(height * 0.039, FontWeight.bold, grey1)
+                      style: h1(height * 0.037, FontWeight.bold, grey1)
                     ),
                     SizedBox(height: height * 0.001,),
                     Text(
                       "Création du compte",
-                      style: h1(height * 0.029, FontWeight.bold, grey1)
+                      style: h1(height * 0.027, FontWeight.bold, grey1)
                     ),
                     SizedBox(height: height * 0.03,),
                     TextFormField(
+                        style: h1(null, FontWeight.normal, grey1),
                         decoration: InputDecoration(
                           labelText: "Nom d'utilisateur",
                           labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -101,6 +103,7 @@ class _SignUpState extends State<SignUp> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                              style: h1(null, FontWeight.normal, grey1),
                               decoration: InputDecoration(
                               labelText: "Nom",
                               labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -128,6 +131,7 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(width: width * 0.03,),
                         Expanded(
                           child: TextFormField(
+                              style: h1(null, FontWeight.normal, grey1),
                               decoration: InputDecoration(
                               labelText: "Post - Nom",
                               labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -157,6 +161,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: height * 0.020,),
                     TextFormField(
+                        style: h1(null, FontWeight.normal, grey1),
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -183,6 +188,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: height * 0.020,),
                     TextFormField(
+                        style: h1(null, FontWeight.normal, grey1),
                         decoration: InputDecoration(
                           labelText: "Mot de passe",
                           labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -236,7 +242,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-          ),
+          ],
         ),
       )
     );

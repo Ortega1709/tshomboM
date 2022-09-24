@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tshombo/views/forgotPassword.dart';
 import 'package:tshombo/views/index.dart';
 import 'package:tshombo/views/signUp.dart';
 import '../utils/couleurs.dart';
@@ -35,12 +36,14 @@ class _LoginState extends State<Login> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
+
     return Scaffold(
       backgroundColor: ghost,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset("lib/images/lineup.png", ),
+            Padding(
               padding: EdgeInsets.all(width * 0.060),
               child: Form(
                 key: formKey,
@@ -50,15 +53,16 @@ class _LoginState extends State<Login> {
                   children: [
                     Text(
                       "Bienvenue !",
-                      style: h1(height * 0.039 , FontWeight.bold, grey1)
+                      style: h1(height * 0.036 , FontWeight.bold, grey1)
                     ),
                     SizedBox(height: height * 0.001,),
                     Text(
                       "Connexion au compte",
-                      style: h1(height * 0.029 , FontWeight.bold, grey1)
+                      style: h1(height * 0.026 , FontWeight.bold, grey1)
                     ),
                     SizedBox(height: height * 0.030,),
                     TextFormField(
+                      style: h1(null, FontWeight.normal, grey1),
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -85,6 +89,7 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: height * 0.020,),
                     TextFormField(
+                      style: h1(null, FontWeight.normal, grey1),
                       decoration: InputDecoration(
                         labelText: "Mot de passe",
                         labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
@@ -134,7 +139,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-          ),
+          ],
         ),
       )
     );
@@ -150,13 +155,17 @@ Widget footers(BuildContext context, double? height, double? width) => Row(
       children: [
         GestureDetector(
           onTap: () {
-            
+            Navigator
+            .of(context)
+            .push(
+              MaterialPageRoute(builder: (context) => const ForgotPassword())
+            );
           },
           child: Text(
             "Mot de passe oublié ?",
             style: h1(height! * 0.018, FontWeight.bold, grey1)
           ),
-        )
+        ),
       ],
     ),
     Column(
