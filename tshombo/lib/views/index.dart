@@ -55,7 +55,7 @@ class _IndexState extends State<Index> {
 
       bottomNavigationBar: BottomNavyBar(
         showElevation: false,
-        backgroundColor: ghost,
+        backgroundColor: Couleur().white,
         selectedIndex: currentIndex,
         onItemSelected: (index) {
           setState(() {
@@ -64,9 +64,9 @@ class _IndexState extends State<Index> {
         },
         items: <BottomNavyBarItem> [
           BottomNavyBarItem(
-            activeColor: grey1,
+            activeColor: Couleur().blue,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.home_rounded, color: grey1),
+            icon: Icon(Icons.home_rounded, color: Couleur().blue),
             title: Text(
               "Accueil",
               style: GoogleFonts.inter(
@@ -77,9 +77,9 @@ class _IndexState extends State<Index> {
           ),
 
           BottomNavyBarItem(
-            activeColor: grey1,
+            activeColor: Couleur().blue,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.store_rounded, color: grey1),
+            icon: Icon(Icons.store_rounded, color: Couleur().blue),
             title: Text(
               "Shops",
               style: GoogleFonts.inter(
@@ -90,9 +90,9 @@ class _IndexState extends State<Index> {
           ),
 
           BottomNavyBarItem(
-            activeColor: grey1,
+            activeColor: Couleur().blue,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.assignment_rounded, color: grey1),
+            icon: Icon(Icons.assignment_rounded, color: Couleur().blue),
             title: Text(
               "Commandes",
               style: GoogleFonts.inter(
@@ -103,9 +103,9 @@ class _IndexState extends State<Index> {
           ),
 
           BottomNavyBarItem(
-            activeColor: grey1,
+            activeColor: Couleur().blue,
             textAlign: TextAlign.center,
-            icon: const Icon(Icons.shopping_cart_rounded, color: grey1),
+            icon: Icon(Icons.shopping_cart_rounded, color: Couleur().blue),
             title: Text(
               "Panier",
               style: GoogleFonts.inter(

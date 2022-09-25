@@ -1,12 +1,8 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:tshombo/api/email_api.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:http/http.dart' as http;
 import 'package:tshombo/utils/typographie.dart';
+import '../utils/generateCode.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -19,48 +15,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   final formKey = GlobalKey<FormState>();
   var textEditingControllerEmail = TextEditingController();
-
-
-  // fonction send Email
-  Future sendEmail({
-    required String email,
-    String subject = "Modification du mot de passe",
-    String message = "Voici le code: 787898"
-  }) async {
-
-    const serviceId = 'service_kpxs4mf';
-    const templateId = 'template_n8ooitp';
-    const userId = 'bUIWjPAjgs5DsP6FH';
-
-    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-    final response = await http
-    .post(
-      url,
-      headers: {
-        'origin': 'http://localhost',
-        'Content-Type': 'application/json',
-      },
-      body: json.encode(
-        {
-        'service_id': serviceId,
-        'template_id': templateId,
-        'user_id': userId,
-        'template_params': {
-          'user_email': email,
-          'user_subject': subject,
-          'user_message': message
-        }
-      },
-      )
-    );
-
-    if (response.body == "OK") {
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger
-      .of(context)
-      .showSnackBar(SnackBar(content: Text("Email a été envoyé, verifiez votre boite !", style: h1(17, FontWeight.bold, Colors.white)), backgroundColor: grey1,));
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,27 +38,27 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
                     Text(
                       "Mot de passe oublié ?",
-                      style: h1(height * 0.025 , FontWeight.bold, grey1)
+                      style: h1(height * 0.025 , FontWeight.bold, Couleur().blue)
                     ),
                     SizedBox(height: height * 0.001,),
                     Text(
-                      "Veuillez insérer votre adresse email, nous vous enverrons un lien de modification du mot de passe.",
-                      style: h1(height * 0.018 , FontWeight.normal, grey1)
+                      "Veuillez insérer votre adresse email, nous vous enverrons un code pour la modification du mot de passe.",
+                      style: h1(height * 0.018 , FontWeight.normal, Couleur().blue)
                     ),
                     SizedBox(height: height * 0.030,),
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Email",
-                        labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                        suffixIcon: const Icon(Icons.email, color: grey1,),
-                        focusedBorder: const UnderlineInputBorder(
+                        labelStyle: h1(height * 0.018, FontWeight.normal, Couleur().blue),
+                        suffixIcon: Icon(Icons.email, color: Couleur().blue,),
+                        focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: grey1,
+                            color: Couleur().white,
                             width: 1.5
                           ),
                         ),
                       ),
-                      cursorColor: grey1,
+                      cursorColor: Couleur().blue,
                       controller: textEditingControllerEmail,
                       keyboardType: TextInputType.text,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -115,6 +69,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
                           return "Veuillez entrer une adresse correct";
                         }
+                        return null;
                       },
                     ),
                     SizedBox(height: height * 0.030,),
@@ -124,23 +79,33 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         GestureDetector(
                           onTap: () {
                             if (formKey.currentState!.validate()) {
-
+                              EmailApi().sendEmail(
+                                email: textEditingControllerEmail.text.trim().toString().toLowerCase(),
+                                subject: "Modification du mot de passe oublié",
+                                message: "Voici le code: ${randomCodeEmail(10000,5100).toString()}",
+                                context: context
+                              );
                             }
                           },
                           child: Text(
                             "Renvoyer le mail",
-                            style: h1(height * 0.018 , FontWeight.bold, grey1)
+                            style: h1(height * 0.018 , FontWeight.bold, Couleur().blue)
                           ),
                         ),
                         FloatingActionButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              sendEmail(email: textEditingControllerEmail.text.toString().trim().toLowerCase());
+                              EmailApi().sendEmail(
+                                email: textEditingControllerEmail.text.trim().toString().toLowerCase(),
+                                subject: "Modification du mot de passe oublié",
+                                message: "Voici le code: ${randomCodeEmail(10000,5100).toString()}",
+                                context: context
+                              );
                             } else {
                               return;
                             }
                           },
-                          backgroundColor: grey1,
+                          backgroundColor: Couleur().white,
                           tooltip: "Connexion",
                           child: const Icon(Icons.arrow_forward_rounded, color: Colors.white,),
                         )

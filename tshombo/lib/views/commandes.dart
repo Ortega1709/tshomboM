@@ -11,21 +11,21 @@ class Commandes extends StatefulWidget {
 
 class _CommandesState extends State<Commandes> {
 
+
   @override
   void initState() {
     super.initState();
-    print("Commande");
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ghost,
+      backgroundColor: Couleur().white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopBar(title: "Commandes")
+              TopBar(title: "Commandes", currentUser: "Kabwe Mulunda",)
             ],
           ),
         )

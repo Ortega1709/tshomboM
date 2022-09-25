@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/typographie.dart';
-import '../utils/couleurs.dart';
+import 'package:tshombo/utils/couleurs.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -20,42 +20,20 @@ class _SignUpState extends State<SignUp> {
   var textEditingControllerEmail = TextEditingController();
   var textEditingControllerPassword = TextEditingController();
 
-  void enregistrement() {
-
-    if (
-      textEditingControllerUsername.text.isNotEmpty && 
-      textEditingControllerNom.text.isNotEmpty && 
-      textEditingControllerPostNom.text.isNotEmpty &&
-      textEditingControllerEmail.text.isNotEmpty &&
-      textEditingControllerPassword.text.isNotEmpty) {
-
-
-      } else {
-        ScaffoldMessenger
-        .of(context)
-        .showSnackBar(
-          SnackBar(
-            content: Text("Tous les champs sont réquis", style: GoogleFonts.alegreyaSans(color: Colors.white, fontSize: 15),),
-            backgroundColor: grey1,
-          )
-        );
-      }
-  }
 
   @override
   Widget build(BuildContext context) {
 
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var dimension = Dimension(context);
 
     return Scaffold(
-      backgroundColor: ghost,
+      backgroundColor: Couleur().white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset("lib/images/lineup.png"),
             Padding(
-              padding: EdgeInsets.all(width * 0.060),
+              padding: EdgeInsets.all(dimension.width * 0.060),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -64,28 +42,28 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     Text(
                       "Bienvenue !",
-                      style: h1(height * 0.037, FontWeight.bold, grey1)
+                      style: h1(dimension.height * 0.037, FontWeight.bold, Couleur().blue)
                     ),
-                    SizedBox(height: height * 0.001,),
+                    SizedBox(height: dimension.height * 0.001,),
                     Text(
                       "Création du compte",
-                      style: h1(height * 0.027, FontWeight.bold, grey1)
+                      style: h1(dimension.height * 0.027, FontWeight.bold, Couleur().blue)
                     ),
-                    SizedBox(height: height * 0.03,),
+                    SizedBox(height: dimension.height * 0.03,),
                     TextFormField(
-                        style: h1(null, FontWeight.normal, grey1),
+                        style: h1(null, FontWeight.normal, Couleur().blue),
                         decoration: InputDecoration(
                           labelText: "Nom d'utilisateur",
-                          labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                          suffixIcon: const Icon(Icons.person, color: grey1,),
-                          focusedBorder: const UnderlineInputBorder(
+                          labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                          suffixIcon: Icon(Icons.person, color: Couleur().blue,),
+                          focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: grey1,
+                              color: Couleur().blue,
                               width: 1.5
                             ),
                           ),
                         ),
-                        cursorColor: grey1,
+                        cursorColor: Couleur().blue,
                         controller: textEditingControllerUsername,
                         keyboardType: TextInputType.text,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -96,25 +74,26 @@ class _SignUpState extends State<SignUp> {
                           else if (!RegExp(r"^[a-z A-Z]+$").hasMatch(value)) {
                             return "Veuillez entrer un nom correct";
                           }
+                          return null;
                         },
                     ),
-                    SizedBox(height: height * 0.02,),
+                    SizedBox(height: dimension.height * 0.02,),
                     Row(
                       children: [
                         Expanded(
                           child: TextFormField(
-                              style: h1(null, FontWeight.normal, grey1),
+                              style: h1(null, FontWeight.normal, Couleur().blue),
                               decoration: InputDecoration(
                               labelText: "Nom",
-                              labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                              focusedBorder: const UnderlineInputBorder(
+                              labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                              focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: grey1,
+                                  color: Couleur().blue,
                                   width: 1.5
                                 ),
                               ),
                             ),
-                            cursorColor: grey1,
+                            cursorColor: Couleur().blue,
                             controller: textEditingControllerNom,
                             keyboardType: TextInputType.text,
                             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -128,22 +107,22 @@ class _SignUpState extends State<SignUp> {
                             },
                           ),
                         ),
-                        SizedBox(width: width * 0.03,),
+                        SizedBox(width: dimension.width * 0.03,),
                         Expanded(
                           child: TextFormField(
-                              style: h1(null, FontWeight.normal, grey1),
+                              style: h1(null, FontWeight.normal, Couleur().blue),
                               decoration: InputDecoration(
                               labelText: "Post - Nom",
-                              labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                              suffixIcon: const Icon(Icons.badge, color: grey1,),
-                              focusedBorder: const UnderlineInputBorder(
+                              labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                              suffixIcon: Icon(Icons.badge, color: Couleur().blue,),
+                              focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: grey1,
+                                  color: Couleur().blue,
                                   width: 1.5
                                 ),
                               ),
                             ),
-                            cursorColor: grey1,
+                            cursorColor: Couleur().blue,
                             controller: textEditingControllerPostNom,
                             keyboardType: TextInputType.text,
                             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -159,21 +138,21 @@ class _SignUpState extends State<SignUp> {
                         )
                       ],
                     ),
-                    SizedBox(height: height * 0.020,),
+                    SizedBox(height: dimension.height * 0.020,),
                     TextFormField(
-                        style: h1(null, FontWeight.normal, grey1),
+                        style: h1(null, FontWeight.normal, Couleur().blue),
                         decoration: InputDecoration(
                           labelText: "Email",
-                          labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                          suffixIcon: const Icon(Icons.email, color: grey1,),
-                          focusedBorder: const UnderlineInputBorder(
+                          labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                          suffixIcon: Icon(Icons.email, color: Couleur().blue),
+                          focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: grey1,
+                              color: Couleur().blue,
                               width: 1.5
                             ),
                           ),
                         ),
-                        cursorColor: grey1,
+                        cursorColor: Couleur().blue,
                         controller: textEditingControllerEmail,
                         keyboardType: TextInputType.emailAddress,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -186,21 +165,21 @@ class _SignUpState extends State<SignUp> {
                           }
                         },
                     ),
-                    SizedBox(height: height * 0.020,),
+                    SizedBox(height: dimension.height * 0.020,),
                     TextFormField(
-                        style: h1(null, FontWeight.normal, grey1),
+                        style: h1(null, FontWeight.normal, Couleur().blue),
                         decoration: InputDecoration(
                           labelText: "Mot de passe",
-                          labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                          suffixIcon: const Icon(Icons.lock, color: grey1,),
-                          focusedBorder: const UnderlineInputBorder(
+                          labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                          suffixIcon: Icon(Icons.lock, color: Couleur().blue),
+                          focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: grey1,
+                              color: Couleur().blue,
                               width: 1.5
                             ),
                           ),
                         ),
-                        cursorColor: grey1,
+                        cursorColor: Couleur().blue,
                         controller: textEditingControllerPassword,
                         keyboardType: TextInputType.text,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -211,9 +190,10 @@ class _SignUpState extends State<SignUp> {
                           else if (!RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$").hasMatch(value)) {
                             return "Veuillez entrer un mot de passe correct";
                           }
+                          return null;
                         },
                     ),
-                    SizedBox(height: height * 0.030,),
+                    SizedBox(height: dimension.height * 0.030,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -223,7 +203,7 @@ class _SignUpState extends State<SignUp> {
                           },
                           child: Text(
                             "Se connecter",
-                            style: h1(height * 0.018, FontWeight.bold, grey1)
+                            style: h1(dimension.height * 0.018, FontWeight.bold, Couleur().blue)
                           ),
                         ),
                         FloatingActionButton(
@@ -232,7 +212,7 @@ class _SignUpState extends State<SignUp> {
 
                             } 
                           },
-                          backgroundColor: grey1,
+                          backgroundColor: Couleur().blue,
                           tooltip: "Créer",
                           child: const Icon(Icons.arrow_forward_rounded, color: Colors.white,),
                         )

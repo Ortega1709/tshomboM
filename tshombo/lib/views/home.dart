@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tshombo/utils/couleurs.dart';
+import 'package:tshombo/utils/typographie.dart';
+import 'package:tshombo/widgets/carousselPromotion.dart';
 import 'package:tshombo/widgets/topBar.dart';
 
 class Home extends StatefulWidget {
@@ -12,26 +14,21 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  @override
-  void initState() {
-    super.initState();
-    print("Home");
-  }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ghost,
+      backgroundColor: Couleur().white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopBar(title: "Accueil")
+              TopBar(title: "Accueil", currentUser: "Kabwe Mulunda",),
             ],
           ),
-        )
+        ),
       )
     );
   }
 }
+

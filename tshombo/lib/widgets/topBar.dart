@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:profile/profile.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/views/panier.dart';
+import 'package:tshombo/utils/dimension.dart';
+import 'package:tshombo/utils/typographie.dart';
 
 class TopBar extends StatefulWidget {
+
+  // ignore: prefer_typing_uninitialized_variables
   final title;
-  const TopBar({super.key ,required this.title});
+  // ignore: prefer_typing_uninitialized_variables
+  final currentUser;
+
+  const TopBar({super.key ,required this.title, required this.currentUser});
 
   @override
   State<TopBar> createState() => _TopBarState();
@@ -15,10 +19,11 @@ class TopBar extends StatefulWidget {
 
 class _TopBarState extends State<TopBar> {
 
-  late String name = "Tshombo";
-  
   @override
   Widget build(BuildContext context) {
+
+    var dimension = Dimension(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
       child: SizedBox(
@@ -26,32 +31,15 @@ class _TopBarState extends State<TopBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center ,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: GoogleFonts.inter(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: grey1
-                  ),
-                ),
-                Text(
-                  widget.title,
-                  style: GoogleFonts.inter(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: grey1
-                  ),
-                ),
-              ],
+            Text(
+              widget.title,
+              style: h1(dimension.height * 0.025, FontWeight.bold, Couleur().blue),
             ),
-            const ProfilePicture(
-              name: "Kabwe Mulunda Ortega",
-              radius: 20,
-              fontsize: 18,
-            )
+            ProfilePicture(
+              name: widget.currentUser,
+              fontsize: dimension.height * 0.026,
+              radius: dimension.height * 0.035,
+            ),
           ],
         ),
       ),

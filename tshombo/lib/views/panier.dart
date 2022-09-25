@@ -17,18 +17,17 @@ class _PanierState extends State<Panier> {
   @override
   void initState() {
     super.initState();
-    print("Panier");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ghost,
+      backgroundColor: Couleur().white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopBar(title: "Mon Panier")
+              TopBar(title: "Panier", currentUser: "Kabwe Mulunda",)
             ],
           ),
         ),

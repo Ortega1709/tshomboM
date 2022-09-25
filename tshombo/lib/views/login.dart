@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/views/forgotPassword.dart';
-import 'package:tshombo/views/index.dart';
 import 'package:tshombo/views/signUp.dart';
-import '../utils/couleurs.dart';
-import '../utils/typographie.dart';
+import 'package:tshombo/utils/couleurs.dart';
+import 'package:tshombo/utils/typographie.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,36 +15,23 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
 
   final formKey = GlobalKey<FormState>();
-
+  
   var textEditingControllerEmail = TextEditingController();
   var textEditingControllerPassword = TextEditingController();
-
-  // connexion 
-  connexion() async {
-    if (textEditingControllerEmail.text.trim().toLowerCase() == "kabweortega@gmail.com" && textEditingControllerPassword.text.trim() == "observateur17092002") {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Index()));
-    } else {
-      ScaffoldMessenger
-      .of(context)
-      .showSnackBar(SnackBar(content: Text("Email ou mot de passe incorrect", style: h1(null, FontWeight.bold, Colors.white),), backgroundColor: grey1,));
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
 
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-
+    var dimension = Dimension(context);
 
     return Scaffold(
-      backgroundColor: ghost,
+      backgroundColor: Couleur().white,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset("lib/images/lineup.png", ),
+            Image.asset("lib/images/lineup.png"),
             Padding(
-              padding: EdgeInsets.all(width * 0.060),
+              padding: EdgeInsets.all(dimension.width * 0.060),
               child: Form(
                 key: formKey,
                 child: Column(
@@ -53,28 +40,28 @@ class _LoginState extends State<Login> {
                   children: [
                     Text(
                       "Bienvenue !",
-                      style: h1(height * 0.036 , FontWeight.bold, grey1)
+                      style: h1(dimension.height * 0.036 , FontWeight.bold, Couleur().blue)
                     ),
-                    SizedBox(height: height * 0.001,),
+                    SizedBox(height: dimension.height * 0.001,),
                     Text(
                       "Connexion au compte",
-                      style: h1(height * 0.026 , FontWeight.bold, grey1)
+                      style: h1(dimension.height * 0.026 , FontWeight.bold, Couleur().blue)
                     ),
-                    SizedBox(height: height * 0.030,),
+                    SizedBox(height: dimension.height * 0.030,),
                     TextFormField(
-                      style: h1(null, FontWeight.normal, grey1),
+                      style: h1(null, FontWeight.normal, Couleur().blue),
                       decoration: InputDecoration(
                         labelText: "Email",
-                        labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                        suffixIcon: const Icon(Icons.email, color: grey1,),
-                        focusedBorder: const UnderlineInputBorder(
+                        labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                        suffixIcon: Icon(Icons.email, color: Couleur().blue,),
+                        focusedBorder:  UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: grey1,
+                            color: Couleur().blue,
                             width: 1.5
                           ),
                         ),
                       ),
-                      cursorColor: grey1,
+                      cursorColor: Couleur().blue,
                       controller: textEditingControllerEmail,
                       keyboardType: TextInputType.text,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -85,24 +72,25 @@ class _LoginState extends State<Login> {
                         else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
                           return "Veuillez entrer une adresse correct";
                         }
+                        return null;
                       },
                     ),
-                    SizedBox(height: height * 0.020,),
+                    SizedBox(height: dimension.height * 0.020,),
                     TextFormField(
-                      style: h1(null, FontWeight.normal, grey1),
+                      style: h1(null, FontWeight.normal, Couleur().blue),
                       decoration: InputDecoration(
                         labelText: "Mot de passe",
-                        labelStyle: h1(height * 0.018, FontWeight.normal, grey1),
-                        suffixIcon: const Icon(Icons.lock, color: grey1,),
-                        focusedBorder: const UnderlineInputBorder(
+                        labelStyle: h1(dimension.height * 0.018, FontWeight.normal, Couleur().blue),
+                        suffixIcon: Icon(Icons.lock, color: Couleur().blue),
+                        focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: grey1,
+                            color: Couleur().blue,
                             width: 1.5
                           ),
                         ),
                       ),
                       controller: textEditingControllerPassword,
-                      cursorColor: grey1,
+                      cursorColor: Couleur().blue,
                       keyboardType: TextInputType.text,
                       obscureText: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -113,28 +101,27 @@ class _LoginState extends State<Login> {
                         else if (!RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$").hasMatch(value)) {
                           return "Veuillez entrer un mot de passe correct";
                         }
+                        return null;
                       },
                     ),
-                    SizedBox(height: height * 0.030,),
+                    SizedBox(height: dimension.height * 0.030,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         FloatingActionButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              connexion();
-                            } else {
-                              return;
-                            }
+
+                            } 
                           },
-                          backgroundColor: grey1,
+                          backgroundColor: Couleur().blue,
                           tooltip: "Connexion",
                           child: const Icon(Icons.arrow_forward_rounded, color: Colors.white,),
                         )
                       ],
                     ),
-                    SizedBox(height: height * 0.040,),
-                    footers(context, height, width)
+                    SizedBox(height: dimension.height * 0.040,),
+                    footers(context, dimension.height, dimension.width)
                   ],
                 ),
               ),
@@ -145,7 +132,6 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
 
 // bottom action (create an account and forgot password)
 Widget footers(BuildContext context, double? height, double? width) => Row(
@@ -163,7 +149,7 @@ Widget footers(BuildContext context, double? height, double? width) => Row(
           },
           child: Text(
             "Mot de passe oublié ?",
-            style: h1(height! * 0.018, FontWeight.bold, grey1)
+            style: h1(height! * 0.018, FontWeight.bold, Couleur().blue)
           ),
         ),
       ],
@@ -178,7 +164,7 @@ Widget footers(BuildContext context, double? height, double? width) => Row(
           },
           child: Text(
             "Créer un compte",
-            style: h1(height * 0.018, FontWeight.bold, grey1)
+            style: h1(height * 0.018, FontWeight.bold, Couleur().blue)
           ),
         ),
       ],
