@@ -1,9 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tshombo/utils/couleurs.dart';
+import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/views/commandes.dart';
-import 'package:tshombo/views/compte.dart';
 import 'package:tshombo/views/home.dart';
 import 'package:tshombo/views/panier.dart';
 import 'package:tshombo/views/shops.dart';
@@ -69,10 +68,7 @@ class _IndexState extends State<Index> {
             icon: Icon(Icons.home_rounded, color: Couleur().blue),
             title: Text(
               "Accueil",
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.bold
-              )
+              style: h1(15, FontWeight.bold, Couleur().blue)
             )
           ),
 
@@ -82,10 +78,7 @@ class _IndexState extends State<Index> {
             icon: Icon(Icons.store_rounded, color: Couleur().blue),
             title: Text(
               "Shops",
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.bold
-              )
+              style: h1(15, FontWeight.bold, Couleur().blue)
             )
           ),
 
@@ -95,10 +88,7 @@ class _IndexState extends State<Index> {
             icon: Icon(Icons.assignment_rounded, color: Couleur().blue),
             title: Text(
               "Commandes",
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.bold
-              )
+              style: h1(15, FontWeight.bold, Couleur().blue)
             )
           ),
 
@@ -108,10 +98,7 @@ class _IndexState extends State<Index> {
             icon: Icon(Icons.shopping_cart_rounded, color: Couleur().blue),
             title: Text(
               "Panier",
-              style: GoogleFonts.inter(
-                fontSize: 14,
-                fontWeight: FontWeight.bold
-              )
+              style: h1(15, FontWeight.bold, Couleur().blue)
             )
           ),
         ],

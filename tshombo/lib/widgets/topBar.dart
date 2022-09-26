@@ -37,8 +37,8 @@ class _TopBarState extends State<TopBar> {
             ),
             ProfilePicture(
               name: widget.currentUser,
-              fontsize: dimension.height * 0.026,
-              radius: dimension.height * 0.035,
+              fontsize: dimension.height * 0.020,
+              radius: dimension.height * 0.028,
             ),
           ],
         ),
