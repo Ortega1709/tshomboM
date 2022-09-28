@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tshombo/models/dataImage.dart';
+import 'package:tshombo/models/data_image.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/widgets/caroussel.dart';
 

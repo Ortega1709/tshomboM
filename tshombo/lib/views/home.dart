@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tshombo/models/dataImage.dart';
-import 'package:tshombo/models/dataMarque.dart';
+import 'package:tshombo/models/data_image.dart';
+import 'package:tshombo/models/data_marque.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/widgets/caroussel.dart';
-import 'package:tshombo/widgets/listViewMarque.dart';
+import 'package:tshombo/widgets/list_view_marque.dart';
 import 'package:tshombo/widgets/shimmer_caroussel.dart';
 
 class Home extends StatefulWidget {
@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
                     Caroussel(promotion: promotions),
                   ],
                 ),
-                const Divider(height: 0.0,),
+                const Divider(height: 0.0),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,13 +72,14 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
+                const Divider(height: 3.0),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Nouveautés",
-                      style: h1(17, FontWeight.bold, Couleur().blue),
+                      style: h1(Dimension(context).height * 0.020, FontWeight.bold, Couleur().blue),
                     ),
                   ],
                 ),

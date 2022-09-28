@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/utils/dimension.dart';
-import 'package:tshombo/views/forgotPassword.dart';
-import 'package:tshombo/views/signUp.dart';
+import 'package:tshombo/views/forgot_password.dart';
+import 'package:tshombo/views/sign_up.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/typographie.dart';
 
@@ -139,8 +139,8 @@ Widget footers(BuildContext context, double? height, double? width) => Row(
   children: [
     Column(
       children: [
-        GestureDetector(
-          onTap: () {
+        TextButton(
+          onPressed: () {
             Navigator
             .of(context)
             .push(
@@ -156,8 +156,8 @@ Widget footers(BuildContext context, double? height, double? width) => Row(
     ),
     Column(
       children: [
-        GestureDetector(
-          onTap: () {
+        TextButton(
+          onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const SignUp())
             );

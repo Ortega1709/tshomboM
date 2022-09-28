@@ -49,6 +49,39 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+
+    Future<void> showInformationApplication(BuildContext context) async {
+      return await showDialog(
+        context: context, 
+        builder: (context) {
+          return AlertDialog(
+            content: Container(
+              height: 500,
+              child: 
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "À propos",
+                          style: h1(Dimension(context).height * 0.019, FontWeight.bold, Couleur().blue),
+                        ),
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).pop(),
+                          child: Icon(Icons.close, color: Couleur().blue,)
+                        )
+                      ],
+                    ),
+                  ],
+                )
+            ),
+            actions: [
+
+            ],
+          );
+      });
+    }
     
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +104,7 @@ class _IndexState extends State<Index> {
       ),
 
       drawer: Container(
-        width: 250,
+        width: 259,
         decoration: BoxDecoration(
           color: Couleur().white,
         ),
@@ -98,13 +131,13 @@ class _IndexState extends State<Index> {
                     "@$currentUserName",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
-                    style: h1(17, FontWeight.bold, Colors.white),
+                    style: h1(Dimension(context).height * 0.019, FontWeight.bold, Colors.white),
                   ),
                   Text(
                     currentUserEmail,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
-                    style: h1(13, FontWeight.normal, Colors.white),
+                    style: h1(Dimension(context).height * 0.017, FontWeight.normal, Colors.white),
                   )
                 ],
               ),
@@ -117,17 +150,29 @@ class _IndexState extends State<Index> {
                   children: [
                     ListTile(
                       leading: Icon(Icons.privacy_tip, color: Couleur().blue,),
-                      title: Text(
-                        "Mes informations",
-                        style: h1(null, FontWeight.bold, Couleur().blue),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Mes informations",
+                            style: h1(Dimension(context).height * 0.017, FontWeight.bold, Couleur().blue),
+                          ),
+                          Icon(Icons.navigate_next, color: Couleur().blue,)
+                        ],
                       ),
                     ),
                     
                     ListTile(
                       leading: Icon(Icons.add_rounded, color: Couleur().blue,),
-                      title: Text(
-                        "Ajouter un compte",
-                        style: h1(null, FontWeight.bold, Couleur().blue),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Ajouter un compte",
+                            style: h1(Dimension(context).height * 0.017, FontWeight.bold, Couleur().blue),
+                          ),
+                          Icon(Icons.navigate_next, color: Couleur().blue,)
+                        ],
                       ),
                     ),
                   
@@ -135,24 +180,45 @@ class _IndexState extends State<Index> {
               
                     ListTile(
                       leading: Icon(Icons.logout, color: Couleur().blue,),
-                      title: Text(
-                        "Se déconnecter",
-                        style: h1(null, FontWeight.bold, Couleur().blue),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Se déconnecter",
+                            style: h1(Dimension(context).height * 0.017, FontWeight.bold, Couleur().blue),
+                          ),
+                          Icon(Icons.navigate_next, color: Couleur().blue,)
+                        ],
                       ),
                     ),
                     ListTile(
                       leading: Icon(Icons.share_rounded, color: Couleur().blue,),
-                      title: Text(
-                        "Partager l'application",
-                        style: h1(null, FontWeight.bold, Couleur().blue),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Partager l'application",
+                            style: h1(Dimension(context).height * 0.017, FontWeight.bold, Couleur().blue),
+                          ),
+                          Icon(Icons.navigate_next, color: Couleur().blue,)
+                        ],
                       ),
                     ),
               
                     ListTile(
                       leading: Icon(Icons.info, color: Couleur().blue,),
-                      title: Text(
-                        "À propos",
-                        style: h1(null, FontWeight.bold, Couleur().blue),
+                      onTap: () async {
+                        await showInformationApplication(context);
+                      },
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "À propos",
+                            style: h1(Dimension(context).height * 0.017, FontWeight.bold, Couleur().blue),
+                          ),
+                          Icon(Icons.navigate_next, color: Couleur().blue,)
+                        ],
                       ),
                     ),
                   ],
@@ -195,9 +261,8 @@ class _IndexState extends State<Index> {
         enableFeedback: true,
         backgroundColor: Couleur().white,
         iconSize: 26.5,
-        selectedFontSize: 14.5,
-        unselectedLabelStyle: h1(null, FontWeight.bold, Couleur().blue),
-        selectedLabelStyle: h1(null, FontWeight.bold, Couleur().blue),
+        unselectedLabelStyle: h1(Dimension(context).height * 0.0150, FontWeight.bold, Couleur().blue),
+        selectedLabelStyle: h1(Dimension(context).height * 0.0170, FontWeight.bold, Couleur().blue),
 
         // logique de la barre
         currentIndex: currentIndex,

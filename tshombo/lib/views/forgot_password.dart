@@ -3,7 +3,7 @@ import 'package:tshombo/api/email_api.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/utils/message.dart';
-import '../utils/generateCode.dart';
+import '../utils/generate_code.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -80,8 +80,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(
-                          onTap: () {
+                        TextButton(
+                          onPressed: () {
                             Navigator.of(context).pop();
                           },
                           child: Text(
