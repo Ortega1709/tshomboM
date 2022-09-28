@@ -15,7 +15,7 @@ class EmailApi {
   late DataEmail dataEmail;
 
 
-  Future sendEmail({required String email, required String subject, required String message, required BuildContext context}) async {
+  Future<bool> sendEmail({required String email, required String subject, required String message, required BuildContext context}) async {
 
       dataEmail = DataEmail(email: email, subject: subject, message: message);
 
@@ -37,9 +37,9 @@ class EmailApi {
     );
 
     if (response.body == "OK") {
-
+      return true;
     } else {
-      
+      return false;
     }
   }
 

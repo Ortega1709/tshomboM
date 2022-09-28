@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tshombo/api/email_api.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/typographie.dart';
-import '../utils/generateCode.dart';
+import 'package:tshombo/utils/message.dart';
+import '../generateCode.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -12,6 +13,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+
+  bool isLoading = false;
 
   final formKey = GlobalKey<FormState>();
   var textEditingControllerEmail = TextEditingController();
@@ -26,7 +29,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset("lib/images/lineup.png", ),
+            Image.asset("lib/images/lineup.png"),
             Padding(
               padding: EdgeInsets.all(width * 0.060),
               child: Form(
@@ -53,7 +56,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         suffixIcon: Icon(Icons.email, color: Couleur().blue,),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Couleur().white,
+                            color: Couleur().blue,
                             width: 1.5
                           ),
                         ),
@@ -61,6 +64,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       cursorColor: Couleur().blue,
                       controller: textEditingControllerEmail,
                       keyboardType: TextInputType.text,
+                      style: h1(null, FontWeight.normal, Couleur().blue),
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -78,36 +82,44 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            if (formKey.currentState!.validate()) {
-                              EmailApi().sendEmail(
-                                email: textEditingControllerEmail.text.trim().toString().toLowerCase(),
-                                subject: "Modification du mot de passe oublié",
-                                message: "Voici le code: ${randomCodeEmail(10000,5100).toString()}",
-                                context: context
-                              );
-                            }
+                            Navigator.of(context).pop();
                           },
                           child: Text(
-                            "Renvoyer le mail",
+                            "Se connecter",
                             style: h1(height * 0.018 , FontWeight.bold, Couleur().blue)
                           ),
                         ),
                         FloatingActionButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (formKey.currentState!.validate()) {
-                              EmailApi().sendEmail(
-                                email: textEditingControllerEmail.text.trim().toString().toLowerCase(),
-                                subject: "Modification du mot de passe oublié",
-                                message: "Voici le code: ${randomCodeEmail(10000,5100).toString()}",
-                                context: context
-                              );
+
+                              if (isLoading) return;
+
+                              setState(() { isLoading = true; });
+
+                              if (await EmailApi().sendEmail(
+                                  email: textEditingControllerEmail.text.trim().toString().toLowerCase(),
+                                  subject: "Modification du mot de passe oublié",
+                                  message: "Voici le code: ${randomCodeEmail(10000,5100).toString()}",
+                                  context: context
+                                )
+                              ) {
+
+                                setState(() { isLoading = false; });
+                                Message(context, "Nous vous avons envoyé un mail");
+
+                              } else {
+
+                                setState(() { isLoading = false; });
+                                Message(context, "Erreur d'envoie du mail");
+                              }
                             } else {
                               return;
                             }
                           },
-                          backgroundColor: Couleur().white,
+                          backgroundColor: Couleur().blue,
                           tooltip: "Connexion",
-                          child: const Icon(Icons.arrow_forward_rounded, color: Colors.white,),
+                          child: isLoading ? CircularProgressIndicator(color: Couleur().white,) : const Icon(Icons.east_rounded, color: Colors.white,) ,
                         )
                       ],
                     ),

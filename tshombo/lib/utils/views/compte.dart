@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/widgets/topBar.dart';
 
 class Compte extends StatefulWidget {
   const Compte({super.key});
@@ -23,7 +22,6 @@ class _CompteState extends State<Compte> {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopBar(title: "Mon compte", currentUser: "Kabwe Mulunda",)
             ],
           ),
         )

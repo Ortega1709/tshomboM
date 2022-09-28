@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/views/index.dart';
-import 'package:tshombo/views/login.dart';
+import 'package:tshombo/utils/views/forgotPassword.dart';
+import 'package:tshombo/utils/views/index.dart';
+import 'package:tshombo/utils/views/login.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,26 +1,25 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tshombo/models/dataImage.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/utils/dimension.dart';
-import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/widgets/caroussel.dart';
-import 'package:tshombo/widgets/topBar.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Shops extends StatefulWidget {
+  const Shops({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Shops> createState() => _ShopsState();
 }
 
-class _HomeState extends State<Home> {
+class _ShopsState extends State<Shops> {
 
-
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+
 
     List<DataImage> promotions = [];
     promotions.add(DataImage(url: "https://images.unsplash.com/photo-1594969155368-f19485a9d88c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", shop: "Mupendwa"));
@@ -34,13 +33,10 @@ class _HomeState extends State<Home> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const TopBar(title: "Accueil", currentUser: "Kabwe Mulunda",),
-              Caroussel(promotion: promotions)
             ],
           ),
-        ),
+        )
       )
     );
   }
 }
-

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/widgets/topBar.dart';
+import 'package:tshombo/utils/typographie.dart';
 
-class Commandes extends StatefulWidget {
-  const Commandes({super.key});
+class Recherche extends StatefulWidget {
+  const Recherche({super.key});
 
   @override
-  State<Commandes> createState() => _CommandesState();
+  State<Recherche> createState() => _RechercheState();
 }
 
-class _CommandesState extends State<Commandes> {
-
-
+class _RechercheState extends State<Recherche> {
+  
   @override
   void initState() {
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +25,11 @@ class _CommandesState extends State<Commandes> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: const [
-              TopBar(title: "Commandes", currentUser: "Kabwe Mulunda",)
+            children: [
             ],
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/utils/couleurs.dart';
-import 'package:tshombo/widgets/topBar.dart';
 
-class Shops extends StatefulWidget {
-  const Shops({super.key});
+class Commandes extends StatefulWidget {
+  const Commandes({super.key});
 
   @override
-  State<Shops> createState() => _ShopsState();
+  State<Commandes> createState() => _CommandesState();
 }
 
-class _ShopsState extends State<Shops> {
+class _CommandesState extends State<Commandes> {
+
 
   @override
   void initState() {
     super.initState();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,6 @@ class _ShopsState extends State<Shops> {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TopBar(title: "Shops", currentUser: "Kabwe Mulunda",)
             ],
           ),
         )
