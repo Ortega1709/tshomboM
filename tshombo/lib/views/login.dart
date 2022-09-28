@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/utils/dimension.dart';
-import 'package:tshombo/utils/views/forgotPassword.dart';
-import 'package:tshombo/utils/views/signUp.dart';
+import 'package:tshombo/views/forgotPassword.dart';
+import 'package:tshombo/views/signUp.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/typographie.dart';
 

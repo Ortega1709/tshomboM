@@ -6,6 +6,7 @@ import 'package:tshombo/models/dataImage.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/typographie.dart';
+import 'package:tshombo/widgets/shimmer_caroussel.dart';
 
 
 // ignore: must_be_immutable
@@ -26,7 +27,8 @@ class _CarousselState extends State<Caroussel> {
   @override
   Widget build(BuildContext context) {
 
-    List<Widget> promotions = widget.promotion.map((item) => CachedNetworkImage(
+    List<Widget> promotions = widget.promotion.map((item) => 
+    CachedNetworkImage(
       imageUrl: item.url,
       imageBuilder: (context, imageProvider) => Container(
         width: double.infinity,
@@ -43,28 +45,28 @@ class _CarousselState extends State<Caroussel> {
             borderRadius: BorderRadius.circular(8.0),
             gradient: const LinearGradient(
               colors: [
-                Color.fromARGB(90, 3, 34, 76),
+                Color.fromARGB(210, 3, 34, 76),
                 Color.fromARGB(0, 3, 33, 76)
               ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter
             )
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Icon(Icons.store_rounded, color: Colors.white,),
+              const Icon(Icons.store_rounded, color: Colors.white, size: 20,),
               const SizedBox(width: 5,),
               Text(
                 item.shop,
-                style: h1(16, FontWeight.bold, Colors.white),
+                style: h1(Dimension(context).height * 0.019, FontWeight.bold, Colors.white),
               ),
             ],
           )
         )
       ),
-      placeholder: (context, url) => Center(child: CircularProgressIndicator(backgroundColor: Couleur().blue,),),
+      placeholder: (context, url) => const ShimmerCaroussel(),
       errorWidget: (context, url, error) => Center(child: Icon(Icons.error, color: Couleur().blue,),),
     ),
     ).toList();

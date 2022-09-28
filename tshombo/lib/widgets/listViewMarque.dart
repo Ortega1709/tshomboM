@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tshombo/models/dataMarque.dart';
 import 'package:tshombo/utils/couleurs.dart';
+import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/message.dart';
 import 'package:tshombo/utils/typographie.dart';
 
@@ -31,20 +32,17 @@ class _ListViewMarqueState extends State<ListViewMarque> {
 }
 
 Widget marques(String nom, BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 2.5),
-    child: GestureDetector(
-      onTap: () {
-        Message(context, nom);
-      },
+  return GestureDetector(
+    onTap: () {
+      Message(context, nom);
+    },
+    child: Padding(
+      padding: const EdgeInsets.all(1.2),
       child: Chip(
         backgroundColor: Couleur().blue,
-        label: Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Text(
-            nom,
-            style: h1(null, FontWeight.normal, Couleur().white)
-          ),
+        label: Text(
+          nom,
+          style: h1(Dimension(context).height * 0.0155, FontWeight.normal, Colors.white)
         ),
       ),
     ),

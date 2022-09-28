@@ -3,7 +3,7 @@ import 'package:tshombo/api/email_api.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/utils/message.dart';
-import '../generateCode.dart';
+import '../utils/generateCode.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});

@@ -5,11 +5,11 @@ import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:tshombo/utils/couleurs.dart';
 import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/typographie.dart';
-import 'package:tshombo/utils/views/commandes.dart';
-import 'package:tshombo/utils/views/recherche.dart';
-import 'package:tshombo/utils/views/home.dart';
-import 'package:tshombo/utils/views/panier.dart';
-import 'package:tshombo/utils/views/shops.dart';
+import 'package:tshombo/views/commandes.dart';
+import 'package:tshombo/views/recherche.dart';
+import 'package:tshombo/views/home.dart';
+import 'package:tshombo/views/panier.dart';
+import 'package:tshombo/views/shops.dart';
 
 class Index extends StatefulWidget {
   const Index({super.key});
@@ -53,7 +53,7 @@ class _IndexState extends State<Index> {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Couleur().blue,
-        title: Text(title, style: h1(Dimension(context).height * 0.022, FontWeight.bold, Couleur().blue)),
+        title: Text(title, style: h1(Dimension(context).height * 0.020, FontWeight.bold, Couleur().blue)),
         backgroundColor: Couleur().white,
         centerTitle: true,
         elevation: 0,

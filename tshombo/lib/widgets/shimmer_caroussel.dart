@@ -1,5 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:tshombo/utils/dimension.dart';
 
 class ShimmerCaroussel extends StatefulWidget {
   const ShimmerCaroussel({super.key});
@@ -11,6 +12,17 @@ class ShimmerCaroussel extends StatefulWidget {
 class _ShimmerCarousselState extends State<ShimmerCaroussel> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[400]! ,
+      highlightColor: Colors.grey[300]!,
+      child: Container(
+        width: Dimension(context).width,
+        height: Dimension(context).height * 0.295,
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(8.0)
+        ),
+      ),
+    );
   }
 }
