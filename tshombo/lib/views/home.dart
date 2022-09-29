@@ -1,7 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_profile_picture/flutter_profile_picture.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tshombo/models/data_image.dart';
 import 'package:tshombo/models/data_marque.dart';
 import 'package:tshombo/utils/couleurs.dart';
@@ -9,7 +6,7 @@ import 'package:tshombo/utils/dimension.dart';
 import 'package:tshombo/utils/typographie.dart';
 import 'package:tshombo/widgets/caroussel.dart';
 import 'package:tshombo/widgets/list_view_marque.dart';
-import 'package:tshombo/widgets/shimmer_caroussel.dart';
+import 'package:tshombo/widgets/shimmer_phone.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -50,7 +47,7 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            padding: const EdgeInsets.symmetric(horizontal: 9.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -72,7 +69,7 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-                const Divider(height: 3.0),
+                const SizedBox(height: 5.0),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,6 +77,11 @@ class _HomeState extends State<Home> {
                     Text(
                       "Nouveautés",
                       style: h1(Dimension(context).height * 0.020, FontWeight.bold, Couleur().blue),
+                    ),
+                    const SizedBox(height: 9.0,),
+                    const SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: ShimmerPhone()
                     ),
                   ],
                 ),

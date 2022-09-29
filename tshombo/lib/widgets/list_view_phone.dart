@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tshombo/models/dataPhone.dart';
+import 'package:tshombo/models/data_phone.dart';
 
 class ListViewPhone extends StatefulWidget {
 
